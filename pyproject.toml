@@ -1,0 +1,43 @@
+[build-system]
+build-backend = "setuptools.build_meta"
+requires = [
+  "setuptools>=60",
+]
+
+[project]
+name = "wfde5-flux-era5-source"
+
+version = "0.1.0"
+description = "Project-local Anemoi source plugin for WFDE5 flux ERA5-style valid times."
+readme = "README.md"
+
+dependencies = [
+  "anemoi-datasets",
+  "anemoi-transform",
+  "anemoi-utils>=0.5",
+]
+
+keywords = [
+  "anemoi",
+  "datasets",
+  "era5",
+  "wfde5",
+  "source-plugin",
+]
+
+license = { text = "Apache License Version 2.0" }
+authors = [
+  { name = "Niclas Rieger", email = "niclas.rieger@ecmwf.int" },
+]
+requires-python = "==3.12"
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Operating System :: OS Independent",
+  "Programming Language :: Python :: 3 :: Only",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: Implementation :: CPython",
+]
+
+urls.Repository = "https://github.com/nicrie/wfde5_nrt"
+
+entry-points."anemoi.datasets.create.sources".wfde5-flux-era5-time = "wfde5_flux_era5_source.wfde5_flux_era5_time:Wfde5FluxEra5TimePlugin"
