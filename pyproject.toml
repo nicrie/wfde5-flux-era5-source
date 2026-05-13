@@ -8,7 +8,7 @@ requires = [
 name = "wfde5-flux-era5-source"
 
 version = "0.1.0"
-description = "Project-local Anemoi source plugin for WFDE5 flux ERA5-style valid times."
+description = "Source plugin for Anemoi datasets that makes WFDE5 flux data behave like ERA5 end-of-interval fluxes by adjusting metadata timestamps while leaving the underlying values unchanged."
 readme = "README.md"
 
 dependencies = [
@@ -38,6 +38,6 @@ classifiers = [
   "Programming Language :: Python :: Implementation :: CPython",
 ]
 
-urls.Repository = "https://github.com/nicrie/wfde5_nrt"
+urls.Repository = "https://github.com/nicrie/wfde5-flux-era5-source"
 
 entry-points."anemoi.datasets.create.sources".wfde5-flux-era5-time = "wfde5_flux_era5_source.wfde5_flux_era5_time:Wfde5FluxEra5TimePlugin"
