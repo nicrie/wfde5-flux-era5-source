@@ -6,6 +6,16 @@ This plugin wraps a single WFDE5 flux source and retags its `valid_datetime`
 metadata so the emitted fields behave like ERA5 end-of-interval fluxes. The
 underlying WFDE5 values are not modified.
 
+## Development
+
+Create an environment and install the package with test dependencies:
+
+```bash
+uv venv --python 3.12
+source .venv/bin/activate
+uv pip install -e .
+```
+
 ## Behaviour
 
 - For a requested ERA5-like target time `T`, the plugin loads the wrapped WFDE5
@@ -27,18 +37,8 @@ underlying WFDE5 values are not modified.
 
 ## Testing
 
-Fast plugin tests:
+Run the unit tests with:
 
 ```bash
-pixi run -e test pytest tests
+uv run pytest
 ```
-
-Optional end-to-end dataset build test:
-
-```bash
-pixi run -e test pytest tests --run-build-tests
-```
-
-The optional build test uses `tests/test-wfde5-anemoi-recipe.yaml` and writes to:
-
-`/ec/res4/scratch/ecm6845/wfde5-ml/anemoi/datasets/wfde5_ml_test.zarr`
