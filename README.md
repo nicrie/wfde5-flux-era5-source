@@ -1,8 +1,8 @@
 # WFDE5 Flux ERA5-Time Source Plugin
 
-Project-local `anemoi-datasets` source plugin for `wfde5_nrt`.
+Standalone `anemoi-datasets` source plugin for WFDE5 flux datasets.
 
-This source wraps a single WFDE5 flux source and retags its `valid_datetime`
+This plugin wraps a single WFDE5 flux source and retags its `valid_datetime`
 metadata so the emitted fields behave like ERA5 end-of-interval fluxes. The
 underlying WFDE5 values are not modified.
 
@@ -30,13 +30,13 @@ underlying WFDE5 values are not modified.
 Fast plugin tests:
 
 ```bash
-pixi run -e test pytest plugins/wfde5-flux-era5-source/tests
+pixi run -e test pytest tests
 ```
 
 Optional end-to-end dataset build test:
 
 ```bash
-pixi run -e test pytest plugins/wfde5-flux-era5-source/tests --run-build-tests
+pixi run -e test pytest tests --run-build-tests
 ```
 
 The optional build test uses `tests/test-wfde5-anemoi-recipe.yaml` and writes to:
