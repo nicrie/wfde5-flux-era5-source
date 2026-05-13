@@ -6,16 +6,16 @@ requires = [
 
 [project]
 name = "wfde5-flux-era5-source"
-
 version = "0.1.0"
 description = "Source plugin for Anemoi datasets that makes WFDE5 flux data behave like ERA5 end-of-interval fluxes by adjusting metadata timestamps while leaving the underlying values unchanged."
 readme = "README.md"
+requires-python = "==3.12.*"
 
-dependencies = [
-  "anemoi-datasets",
-  "anemoi-transform",
-  "anemoi-utils>=0.5",
+authors = [
+  { name = "Niclas Rieger", email = "niclas.rieger@ecmwf.int" },
 ]
+
+license = "Apache-2.0"
 
 keywords = [
   "anemoi",
@@ -25,11 +25,6 @@ keywords = [
   "source-plugin",
 ]
 
-license = { text = "Apache License Version 2.0" }
-authors = [
-  { name = "Niclas Rieger", email = "niclas.rieger@ecmwf.int" },
-]
-requires-python = "==3.12"
 classifiers = [
   "Development Status :: 3 - Alpha",
   "Operating System :: OS Independent",
@@ -38,6 +33,24 @@ classifiers = [
   "Programming Language :: Python :: Implementation :: CPython",
 ]
 
-urls.Repository = "https://github.com/nicrie/wfde5-flux-era5-source"
+dependencies = [
+  "anemoi-datasets",
+  "anemoi-transform",
+  "anemoi-utils>=0.5",
+]
 
-entry-points."anemoi.datasets.create.sources".wfde5-flux-era5-time = "wfde5_flux_era5_source.wfde5_flux_era5_time:Wfde5FluxEra5TimePlugin"
+[project.optional-dependencies]
+test = [
+  "pytest",
+]
+
+[project.urls]
+Repository = "https://github.com/nicrie/wfde5-flux-era5-source"
+
+[project.entry-points."anemoi.datasets.create.sources"]
+wfde5-flux-era5-time = "wfde5_flux_era5_source.wfde5_flux_era5_time:Wfde5FluxEra5TimePlugin"
+
+[dependency-groups]
+dev = [
+  "pytest>=9.0.3",
+]
